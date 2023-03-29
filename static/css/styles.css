@@ -1,16 +1,187 @@
 body {
-    background-color: #e1f4f3;
-    text-align: center;
+    background-color: #f3ebeb;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .navbar {
-    background-color: #333333;
+    position: fixed;
+    width: 100%;
+    background-color:#ffffff;
+    box-shadow: 0px 7px 8px #888888;
+    margin-top: 0;
+    color: red;
 }
 
+
 a {
-    color: #f1f9f9;
+    color: red;
 }
 
 a:hover {
-    color: #f0f0f0;
+    color:red;
   }
+ 
+  #card_body{
+    position: fixed;
+   margin-left: 50;
+   margin-top: 35;
+    width: fit-content;
+    box-shadow:8px -8px 8px 8px #888888;
+   
+  }
+  ul,li{
+    list-style: none;
+    
+    
+   
+   
+  }
+ li{
+  
+ }
+  .text_field{
+    height: 40px;
+    width: 200px;
+    border-bottom:1px solid grey;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    outline: none;
+    background-color: transparent!important;
+
+  
+  border-bottom: 1px solid #e4e4e4;
+  color: #000000;
+  
+  
+  font-size: 24px;
+  font-weight: 500;
+ 
+  }
+  .text_field:focus,.text_field:focus{
+    border-bottom: 2px solid #1c87c9;
+    border-color: red;
+  }
+  #depart_contain{
+   
+    margin-left: -80px;
+   position: absolute;
+  }
+  #dest_contain{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 180px;
+    position:relative;
+    text-align: end;
+  }
+  .main-heading {
+    font-size: 30px;
+    padding: 20px 4% 15px 20px;
+    text-align: center;
+    color: #000;
+    letter-spacing: .4px;
+    font-weight: bold;
+    display: block;
+}
+.label {
+  font-size: 17px;
+  color: #7a7979da;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.detail{
+  
+}
+input[type=submit]{
+ align-content: center;
+ background-color: red;
+ border: none;
+ padding: 10px;
+ margin: 10px;
+ margin-left: 170px;
+}
+#slide{
+  float:right;
+  text-align: center;
+  align-items: end;
+  position: relative;
+  margin-top: 40px;
+}
+.slideshow {
+  list-style-type: none;
+}
+
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    top: -16px; /*Not sure why I needed this fix*/
+		position: fixed;
+   
+    height: 100%;
+    
+    right: 0;
+    z-index: 0; 
+}
+
+.slideshow li span { 
+		position: absolute;
+    width: 700px;
+    height: 70%;
+  
+    top: 170px;
+    right:  100px;
+    color: transparent;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s; 
+}
+
+
+
+.slideshow li:nth-child(1) span { 
+    background-image: url("https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-agra.jpg"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("https://www.planetware.com/photos-large/IND/india-delhi-red-fort.jpg");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-mumbai.jpg");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-amritsar.jpg");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-goa.jpg");
+    animation-delay: 24s; 
+}
+
+
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+	opacity: 1;
+}

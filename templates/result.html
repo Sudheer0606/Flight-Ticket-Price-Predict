@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+<body>
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
+        <a class="navbar-brand font-bold" href="#" style="color: red; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">FLIGHT TICKET PRICE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+            aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active" style="color: black;">
+                    <a class="nav-link" href="#" style="color: grey;"><i class="fa fa-envelope"></i> Contact <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: grey;"><i class="fa fa-gear"></i> Settings</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: grey;"><i class="fa fa-user"></i> Profile </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                        aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="#">My account</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- As a heading -->
+
+
+    <br><br><br>
+
+
+   
+    <h3 style="text-align: center;margin-top: 100px;" >Your flight Price</h3>
+    
+    <h3 style="text-align: center;margin-top: 20px;" id="predict_text">{{ prediction_text }}</h3>
+    <input type="submit" value="Book Ticket" style="right: 0;left: 0;width: fit-content; position: relative;; margin-left: 625px;" class="btn btn-secondary">
+        
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
