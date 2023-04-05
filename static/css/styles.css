@@ -9,7 +9,13 @@ body {
     background-color:#ffffff;
     box-shadow: 0px 7px 8px #888888;
     margin-top: 0;
-    color: red;
+    color: #ea2330;
+   
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 9999;
 }
 
 
@@ -20,19 +26,21 @@ a {
 a:hover {
     color:red;
   }
- 
+ datalist{
+  display: none;
+ }
   #card_body{
-    position: fixed;
-   margin-left: 50;
-   margin-top: 35;
+    position: relative;
+    margin-right: auto;
+    
     width: fit-content;
     box-shadow:8px -8px 8px 8px #888888;
+    z-index: 0; 
+  float: left;
    
   }
   ul,li{
     list-style: none;
-    
-    
    
    
   }
@@ -53,7 +61,7 @@ a:hover {
   border-bottom: 1px solid #e4e4e4;
   color: #000000;
   
-  
+  position: relative;
   font-size: 24px;
   font-weight: 500;
  
@@ -64,7 +72,7 @@ a:hover {
   }
   #depart_contain{
    
-    margin-left: -80px;
+    margin-left: -70px;
    position: absolute;
   }
   #dest_contain{
@@ -84,7 +92,7 @@ a:hover {
     display: block;
 }
 .label {
-  font-size: 17px;
+  font-size: 14px;
   color: #7a7979da;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
@@ -92,44 +100,70 @@ a:hover {
 .detail{
   
 }
+
+ .parentDiv {
+            display: block;
+            
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+  
+        /* To set icon at the right side of the div*/
+        .icon {
+            margin-left: 10px;
+            float: right;
+        }
+        /* Change the color of unchecked checkboxes */
+.form-check-input[type="checkbox"]:not(:checked) + .form-check-label:before {
+  border-color: red;
+}
+
+/* Change the color of checked checkboxes */
+.form-check-input[type="checkbox"]:checked + .form-check-label:before {
+  background-color: red;
+  border-color: red;
+}
+
 input[type=submit]{
  align-content: center;
  background-color: red;
  border: none;
  padding: 10px;
- margin: 10px;
+ position: relative;
+ left: 0;
+ right: 0;
+ margin-top: 0;
  margin-left: 170px;
 }
 #slide{
-  float:right;
-  text-align: center;
-  align-items: end;
+  height: 700px; 
+  width: 700px;
+  
+  float: left;
   position: relative;
-  margin-top: 40px;
+  margin-left: auto;
+  right: 0;
+  
 }
 .slideshow {
   list-style-type: none;
+ 
 }
 
 /** SLIDESHOW **/
 .slideshow,
 .slideshow:after { 
-    top: -16px; /*Not sure why I needed this fix*/
-		position: fixed;
-   
-    height: 100%;
-    
-    right: 0;
-    z-index: 0; 
+    /*Not sure why I needed this fix*/
+	 height: 100%;
+   position: relative;
 }
 
 .slideshow li span { 
 		position: absolute;
     width: 700px;
-    height: 70%;
-  
-    top: 170px;
-    right:  100px;
+    height: 60%;
     color: transparent;
     border-radius: 10px;
     background-size: cover;

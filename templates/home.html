@@ -6,7 +6,11 @@
     <title>Flight Price Prediction</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="/path/to/dist/calendarify.min.css" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link rel="stylesheet" href=
+        "https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -15,7 +19,7 @@
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
 
-
+   
 </head>
 
 <body>
@@ -46,12 +50,11 @@
             </ul>
         </div>
     </nav>
-
+ 
+    
     <!-- As a heading -->
 
-
-    <br><br><br>
-
+<div style="width: fit-content;margin-top: 100px;position: relative;margin-left: 40px;">
 
    
     <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" ><span class="main-heading" >Book Flights</span>
@@ -62,29 +65,31 @@
                         <ul>
                        <li><span class="label"> Depart from</span></li>
                             <li>
-                                    <input class="text_field" type="text" name="Source" id="Source" required="required" list="location" placeholder="Enter Here" />
-                                    <datalist id="location">
-                                        <option value="Delhi">Delhi</option>
-                                        <option value="Kolkata">Kolkata</option>
-                                        <option value="Mumbai">Mumbai</option>
-                                        <option value="Chennai">Chennai</option>
-                                    </datalist>
+                                    <select class="text_field" type="text" name="Source" id="Source" list="location" placeholder="Enter Here" >
+                                        {% for i in City%}
+                                        <option value="{{i}}">{{i}}</option>
+                                        {% endfor %}
+                                        
+
+
+                            </select>
                             </li>
                     </ul>
                     </div>
                 </li>
-                <i class="fa-solid fa-right-left" style="font-size: 24px;"></i>
+                <li><span class="icon">
+                    <i class="material-icons"></i>
+                  </span></li>
                 <li style="display: inline;">
                     <div id="dest_contain">
                         <ul>
                        <li><span class="label">Going to</span></li>
                             <li>
-                                    <input class="text_field" type="text" style="text-align: end;" list="location" name="Destination" id="Destination" required="required" placeholder="Enter Here" />
-                                    <datalist id="location">
-                                        <option value="Delhi">Delhi</option>
-                                        <option value="Kolkata">Kolkata</option>
-                                        <option value="Mumbai">Mumbai</option>
-                                        <option value="Chennai">Chennai</option>
+                                    <input class="text_field" type="text" style="text-align: end;" list="location" name="Destination" id="Destination"  placeholder="Enter Here" />
+                                      <datalist id="location">
+                                    {% for i in Desti%}
+                                        <option value="{{i}}">{{i}}</option>
+                                        {% endfor %} 
                                     </datalist>
                             </li>
                     </ul>
@@ -97,7 +102,7 @@
                    <ul>
                   <li><span class="label">Departure Date</span></li>
                        <li>
-                               <input class="text_field" type="datetime-local" name="Dep_Time" id="Dep_Time" required="required" placeholder="Enter Here" />
+                               <input class="text_field" type="date" name="Dep_Time" id="Dep_Time" placeholder="Enter Here" />
                                
                        </li>
                </ul>
@@ -108,94 +113,84 @@
                    <ul>
                   <li><span class="label">Return</span></li>
                        <li>
-                               <input class="text_field" type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required" placeholder="Enter Here" />
+                               <input class="text_field" type="date" name="Arrival_Time" id="Arrival_Time"  placeholder="Enter Here" />
                                
                        </li>
                </ul>
                </div>
            </li>
       </ul>
-      <ul> 
-        <li class="" style="display: inline;">
-           <div id="depart_contain">
+      
+         </ul>
+ 
+           <div id="traveller" style="position: relative;margin-left: -30px;">
                <ul>
-              <li><span class="label">Stopline</span></li>
+              <li><span class="label">1 Traveller(s), Class</span></li>
                    <li>
-                           <input name="stops" required="required" class="text_field" type="text" list="stopage" placeholder="Enter Here" />
-                           <datalist id="stopage">
-                            <option value="0">Non-Stop</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                           </datalist>
-                   </li>
-           </ul>
+                    <div  class="parentDiv">
+                        <div style="color:black">
+                <span class="text" >1 Travelller, Economy</span>
+                <span class="icon">
+                  <i class="material-icons">expand_more</i>
+                </span>
+            </div>
+                    </div>
+                                    
            </div>
-       </li>
-       <i class="fa-solid fa-right-left" style="font-size: 24px;"></i>
-       <li style="display: inline;">
-           <div id="dest_contain">
-               <ul>
-              <li><span class="label">Airways</span></li>
-                   <li>
-                           <input class="text_field" name="airline" id="airline" required="required" type="text" style="text-align: end;" list="airways" placeholder="Enter Here" />
-                           <datalist id="airways">
-                            <option value="Jet Airways">Jet Airways</option>
-                            <option value="IndiGo">IndiGo</option>
-                            <option value="Air India">Air India</option>
-                            <option value="Multiple carriers">Multiple carriers</option>
-                            <option value="SpiceJet">SpiceJet</option>
-                            <option value="Vistara">Vistara</option>
-                            <option value="Air Asia">Air Asia</option>
-                            <option value="GoAir">GoAir</option>
-                            <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
-                            </option>
-                            <option value="Jet Airways Business">Jet Airways Business</option>
-                            <option value="Vistara Premium economy">Vistara Premium economy</option>
-                            <option value="Trujet">Trujet</option>
-                           </datalist>
-                   </li>
-           </ul>
-           </div>
-       </li>
-  </ul>
+         
+        <div style="margin-left: 15px;">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Non Stop Flight</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input"style="background-color: red;" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Student Fare</label>
+          </div>
+          <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
+            <label class="form-check-label" for="inlineCheckbox3">Armed Forces</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
+            <label class="form-check-label" for="inlineCheckbox4">Senior Citizen</label>
+          </div>
+        </div>
   <input type="submit" value="Submit" class="btn btn-secondary">
             </form>
     </div>
-    <p style="text-align: center; font-size: 24px;font-weight: bold; font-family: 'Times New Roman', Times, serif;margin-left: 100px; margin-top: 30px;">Some of best place to visit !</p>
-        
+  
+
+<div id="slide" >
+    
+        <p style="text-align: center; font-size: 24px;font-weight: bold; font-family: 'Times New Roman', Times, serif;margin-left: 0px; margin-top: 0px;">Some of best place to visit !</p>
+    
+            <ul class="slideshow">
+                <li class="slid_img"><span class="img_link" > 
+                      <p style="width: 100%;bottom: 0;position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">TAJMAHAL AGRA</p>
+                </span></li>
+              <li class="slid_img"><span>
+                <p style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE RED FORT DELHI</p>
+            </span ></li>
+                <li class="slid_img"><span>
+                    <p style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE GREAT WAY MUMBAI</p>
+            
+                </span></li>
+                <li class="slid_img"><span>
+                    <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">AMRITSAR PUNJAB</p>
+            
+                </span></li>
+                <li class="slid_img"><span>
+                    <p style="width: 100%;bottom: 0;position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">GOA</p>
+            
+                </span></li>
+            </ul>
+            
+</div>
    
-    <br>
-    <br>
-    <h3 id="predict_text">{{ prediction_text }}</h3>
-
-
     </div>
    
-        <ul class="slideshow">
-            <li class="slid_img"><span class="img_link" > 
-                  <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">TAJMAHAL AGRA</p>
-            </span></li>
-          <li class="slid_img"><span>
-            <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE RED FORT DELHI</p>
-        </span ></li>
-            <li class="slid_img"><span>
-                <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE GREAT WAY MUMBAI</p>
-        
-            </span></li>
-            <li class="slid_img"><span>
-                <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">AMRITSAR PUNJAB</p>
-        
-            </span></li>
-            <li class="slid_img"><span>
-                <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">GOA</p>
-        
-            </span></li>
-        </ul>
-        </div>
-        
-        
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

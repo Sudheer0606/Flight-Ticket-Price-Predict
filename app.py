@@ -5,22 +5,60 @@ from sklearn import svm
 from sklearn import datasets
 import pickle
 import pandas as pd
-
+import numpy as N
+import requests
+import json
 app = Flask(__name__)
-model = pickle.load(open("flight_rf.pkl", "rb"))
 
+train_data = pd.read_excel('E:\SUDHEER\Major project\Data_Train.xlsx')
+
+data = pd.DataFrame(train_data,columns=['Source','Destination','Price','Airline'])
+source=data['Source'].tolist()
+price=data['Price'].tolist()
+dest=data['Destination'].tolist()
+air=data['Airline'].tolist()
+res = N.array(air) 
+unique_res = N.unique(res) 
+
+un=N.unique(N.array(source))
+dun=N.unique(N.array(dest))
+print(un)
+price_del=[]
+params = {
+  'api_key': '02861096-f9da-4c17-888e-71b2af1011eb',
+  'country_code':'IN'
+  
+}
+method = 'suggest?q=mum'
+api_base = 'http://airlabs.co/api/v9/'
+api_result = requests.get(api_base+method, params)
+api_response = api_result.json()['response']
+
+
+City=['Delhi',"Mumbai","Chennai","Kolkata","Banglore"]
 
 @app.route("/")
 @cross_origin()
 def home():
-    return render_template("home.html")
+    
+    return render_template("home.html",City=un,Desti=dun)
+del_p={}
+
+
 
 
 
 @app.route("/predict", methods = ["GET", "POST"])
 @cross_origin()
 def predict():
+   
     if request.method == "POST":
+        
+      
+        
+
+
+
 
         # Date_of_Journey
         date_dep = request.form["Dep_Time"]
@@ -45,284 +83,66 @@ def predict():
         # print("Duration : ", dur_hour, dur_min)
 
         # Total Stops
-        Total_stops = int(request.form["stops"])
+       
         # print(Total_stops)
 
         # Airline
         # AIR ASIA = 0 (not in column)
-        airline=request.form['airline']
-        if(airline=='Jet Airways'):
-            Jet_Airways = 1
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0 
-
-        elif (airline=='IndiGo'):
-            Jet_Airways = 0
-            IndiGo = 1
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0 
-
-        elif (airline=='Air India'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 1
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0 
-            
-        elif (airline=='Multiple carriers'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 1
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0 
-            
-        elif (airline=='SpiceJet'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 1
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0 
-            
-        elif (airline=='Vistara'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 1
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0
-
-        elif (airline=='GoAir'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 1
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0
-
-        elif (airline=='Multiple carriers Premium economy'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 1
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0
-
-        elif (airline=='Jet Airways Business'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 1
-            Vistara_Premium_economy = 0
-            Trujet = 0
-
-        elif (airline=='Vistara Premium economy'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 1
-            Trujet = 0
-            
-        elif (airline=='Trujet'):
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 1
-
-        else:
-            Jet_Airways = 0
-            IndiGo = 0
-            Air_India = 0
-            Multiple_carriers = 0
-            SpiceJet = 0
-            Vistara = 0
-            GoAir = 0
-            Multiple_carriers_Premium_economy = 0
-            Jet_Airways_Business = 0
-            Vistara_Premium_economy = 0
-            Trujet = 0
+       
+       
 
       
         Source = request.form["Source"]
-        if (Source == 'Delhi'):
-            s_Delhi = 1
-            s_Kolkata = 0
-            s_Mumbai = 0
-            s_Chennai = 0
-
-        elif (Source == 'Kolkata'):
-            s_Delhi = 0
-            s_Kolkata = 1
-            s_Mumbai = 0
-            s_Chennai = 0
-
-        elif (Source == 'Mumbai'):
-            s_Delhi = 0
-            s_Kolkata = 0
-            s_Mumbai = 1
-            s_Chennai = 0
-
-        elif (Source == 'Chennai'):
-            s_Delhi = 0
-            s_Kolkata = 0
-            s_Mumbai = 0
-            s_Chennai = 1
-
-        else:
-            s_Delhi = 0
-            s_Kolkata = 0
-            s_Mumbai = 0
-            s_Chennai = 0
 
     
-        Source = request.form["Destination"]
-        if (Source == 'Cochin'):
-            d_Cochin = 1
-            d_Delhi = 0
-            d_New_Delhi = 0
-            d_Hyderabad = 0
-            d_Kolkata = 0
+        Destination = request.form["Destination"]
         
-        elif (Source == 'Delhi'):
-            d_Cochin = 0
-            d_Delhi = 1
-            d_New_Delhi = 0
-            d_Hyderabad = 0
-            d_Kolkata = 0
+        
+        del_p={}
+        for i in range(0,len(unique_res)):
+            price_del=[]
+            for j in range(0,10000):
+                if source[j]==Source and air[j]==unique_res[i]:
+                    price_del.append(price[j])
+            price_del.sort()
+            del_p[unique_res[i]]=price_del
+        new_dict = {k: v for k, v in del_p.items() if v}
+        sorted_dict = {k: v for k, v in sorted(new_dict.items(), key=lambda item: item[1])}
 
-        elif (Source == 'New_Delhi'):
-            d_Cochin = 0
-            d_Delhi = 0
-            d_New_Delhi = 1
-            d_Hyderabad = 0
-            d_Kolkata = 0
+    
 
-        elif (Source == 'Hyderabad'):
-            d_Cochin = 0
-            d_Delhi = 0
-            d_New_Delhi = 0
-            d_Hyderabad = 1
-            d_Kolkata = 0
-
-        elif (Source == 'Kolkata'):
-            d_Cochin = 0
-            d_Delhi = 0
-            d_New_Delhi = 0
-            d_Hyderabad = 0
-            d_Kolkata = 1
-
-        else:
-            d_Cochin = 0
-            d_Delhi = 0
-            d_New_Delhi = 0
-            d_Hyderabad = 0
-            d_Kolkata = 0
-
-        prediction=model.predict([[
-            Total_stops,
-            Journey_day,
-            Journey_month,
-            Dep_hour,
-            Dep_min,
-            Arrival_hour,
-            Arrival_min,
-            dur_hour,
-            dur_min,
-            Air_India,
-            GoAir,
-            IndiGo,
-            Jet_Airways,
-            Jet_Airways_Business,
-            Multiple_carriers,
-            Multiple_carriers_Premium_economy,
-            SpiceJet,
-            Trujet,
-            Vistara,
-            Vistara_Premium_economy,
-            s_Chennai,
-            s_Delhi,
-            s_Kolkata,
-            s_Mumbai,
-            d_Cochin,
-            d_Delhi,
-            d_Hyderabad,
-            d_Kolkata,
-            d_New_Delhi
-        ]])
-
-        output=round(prediction[0],2)
-        output1=round(prediction[0],2)
-
-        return render_template('result.html',prediction_text="Rs. {}".format(output))
+       
+        return render_template('result.html',City=un,Desti=dun,sorted_dict=sorted_dict,Source=request.form["Source"],Destination=request.form["Destination"],Date=request.form["Dep_Time"])
+    
 
 
     return render_template("result.html")
 
+@app.route("/search", methods = ["GET", "POST"])
+def search():
+   
+    if request.method == "POST":
+        
+     
+        del_p={}
+        for i in range(0,len(unique_res)):
+            price_del=[]
+            for j in range(0,10000):
+                if source[j]==request.form["source_input"] and air[j]==unique_res[i]:
+                    price_del.append(price[j])
+            price_del.sort()
+            del_p[unique_res[i]]=price_del
+        new_dict = {k: v for k, v in del_p.items() if v}
+        sorted_dict = {k: v for k, v in sorted(new_dict.items(), key=lambda item: item[1])}
+
+    
+
+        
+        return render_template('result.html',City=un,Desti=dun,sorted_dict=sorted_dict,Source=request.form["source_input"],Destination=request.form["source_out"],Date=request.form["source_date"])
+    
+
+
+    return render_template("result.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

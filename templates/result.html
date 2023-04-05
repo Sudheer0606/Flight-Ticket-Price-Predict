@@ -11,20 +11,98 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+       
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
-
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            $('#flip').click(function(){
+                $('#panel').slideToggle(1000);
+            });
+        });
+        </script> 
 
 </head>
+<style>
+    body {
+    background-color: #f3ebeb;
+    font-family: "Rubik-Medium", 'Times New Roman', Times, serif;
+    font-size: 1.07143rem;
+}
+.flight_label{
+    font-size: .71429rem;
+      color: #7a7979da;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+#flight_name{
+    font-size: 13px;
+      color: black;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+    .flight_detail{
+        float: left;
+       font-weight: bold;
+        align-content: center;
+        text-align: center;
+        margin-top: 25px;
+
+
+    }
+    .cont_det{
+     position: absolute;
+        
+    }
+    #flight_con{
+        margin-left: 50px;
+        position: relative;
+        margin-right:350px;
+    }
+    
+    #book{
+        align-content: center;
+   color: red;
+ border: 2px solid red;
+ 
+ background-color:transparent ;
+
+ 
+    }
+#inputs{
+    position: relative;
+    
+    margin-top: 60px;
+    height: 100px;
+    background-image:linear-gradient(to right, #b7243a,#43264e);
+}
+#source_input,#source_out,#source_date{
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    font-size: 17px;
+    }
+   #index{
+    height: fit-content;
+    width: fit-content;
+    margin-left: 60px;
+    position: relative;
+    background-color: gray;
+    
+   }
+   #index_label{
+    position: relative;
+   }
+</style>
 <body>
-    <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan" style="box-shadow: none;">
         <a class="navbar-brand font-bold" href="#" style="color: red; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">FLIGHT TICKET PRICE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+            slid_img </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active" style="color: black;">
@@ -46,19 +124,99 @@
             </ul>
         </div>
     </nav>
-
-    <!-- As a heading -->
-
-
-    <br><br><br>
-
-
-   
-    <h3 style="text-align: center;margin-top: 100px;" >Your flight Price</h3>
-    
-    <h3 style="text-align: center;margin-top: 20px;" id="predict_text">{{ prediction_text }}</h3>
-    <input type="submit" value="Book Ticket" style="right: 0;left: 0;width: fit-content; position: relative;; margin-left: 625px;" class="btn btn-secondary">
+<div id="inputs">
+    <form action="\search" method="post">
+    <ul style="margin-top: 20px;">
+        <li class="flight_detail" >
+            <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;">  <i class="fa fa-plane" style="font-size:48px;color:white"></i></div>  
+             </li>
         
+        <li class="flight_detail" >
+           <div class="cont_det"  style="margin-left: 100px; position: relative;">
+            <select name="source_input" id="source_input" value="{{Source}}" class="text_field" type="text"  list="stopage" placeholder="Enter Here" > 
+                {% for i in City%}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %} 
+            </li>
+        </select>
+            <li class="flight_detail" >
+      <div class="cont_det" id="time" style="margin-left: 80px;;position: relative;"> 
+        <select name="source_out" id="source_out" class="text_field" type="text" value="{{Destination}}" list="stopage" placeholder="Enter Here" >
+        {% for i in Desti%}
+        <option value="{{i}}">{{i}}</option>
+        {% endfor %}
+    </select> </div> 
+        </li>
+        <li class="flight_detail" >
+            <div class="cont_det" id="time" style="margin-left: 80px;;position: relative;"> <input name="source_date" id="source_date" class="text_field" type="date" value="{{Date}}" placeholder="Enter Here" /></span> </div> 
+              </li>
+              <li class="flight_detail" >
+                <div class="cont_det" id="time" style="margin-left: 0;;position: relative;"> <input type="submit" id="search_again"value="Search Again" class="btn btn-secondary"></div> 
+                  </li>
+              
+    </ul>
+    </form>
+</div>
+    <!-- As a heading -->
+ 
+     
+        <div id="index">
+            <ul>
+                <li class="index_label" >
+                    <span class="index_label" >Source</span> 
+                      </li>
+                      <li class="index_label" >
+                        <span class="index_label">Source</span> 
+                          </li>
+                          <li class="index_label" >
+                           <span class="index_label">Source</span>
+                              </li>
+                              <li class="" >
+                               <span class="index_label">Source</span>
+                                  </li>
+                                  <li class="" >
+                                    <span class="index_label">Source</span> 
+                                      </li>
+            </ul>
+       </div>
+        <div id="flight_con">
+        <ul>
+            {% for key in sorted_dict.keys()%}
+            <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" style="width: 100%; height: 100px;position: absolute; left: 0;right: 0;margin-bottom: 160px;margin-top: 80px; text-align: center; " >
+
+            <li class="flight_detail" >
+               <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;"> {{key}} </div>  
+                </li>
+                <li class="flight_detail" >
+          <div class="cont_det" id="time" style="margin-left: 280px;;position: relative;"> 19:45 <br> <span class="flight_label">{{Source}}</span> </div> 
+            </li>
+            <li class="flight_detail" >
+                <div class="cont_det" style="margin-left: 10px;position: relative;"><span class="flight_label"><hr style="height: 0px; font-size: 17px;width: 50px; ;border-top: 2px solid #9c9c9c;"></span></div>
+                 </li>
+            <li class="flight_detail" >
+               <div class="cont_det" style="margin-left: 10px;position: relative;"> 21:50 <br> <span class="flight_label">{{Destination}}</span></div>
+                </li>
+                <li class="flight_detail" >
+                    <div class="cont_det" style="margin-left: 80px;position: relative;"><span class="flight_label"><div style="height: 40px; font-size: 17px;width: 0px; ;border-left: 1px solid #9c9c9cc0;"></span></div>
+                     </li>
+                <li class="flight_detail" >
+                    <div class="cont_det" style="margin-left: 10px;position: relative;"> 2h 15m<br> <span class="flight_label">Nonstop</span></div>
+                     </li>
+            
+                <li class="flight_detail" >
+            <div class="cont_det" style="margin-left: 150px; position: relative;">Rs. {{sorted_dict[key][0]}}</div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det">   <button type="" id="book" style="margin-left: 20px;position: relative;" value="Book Ticket"  class="btn btn-primary">Book</button></div>
+                </li>
+                <br>
+                
+                {% endfor %}
+               </div> 
+        </ul>
+        
+   </div>
+    
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
