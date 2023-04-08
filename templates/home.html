@@ -3,28 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Price Prediction</title>
+    <title>UDAAN</title>
+    <link rel="icon"
+        href="https://www.citypng.com/public/uploads/preview/red-ticket-vector-flat-logo-icon-png-11663776261emdoawyxzn.png"
+        type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="/path/to/dist/calendarify.min.css" />
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <link rel="stylesheet" href=
-        "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/path/to/dist/calendarify.min.css" />
+
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
+    <script>
 
-   
+        jQuery.noConflict();
+        $(document).ready(function () {
+            $("#reverse").click(function () {
+                $(this).animate({
+                    'transform': 'rotate(' + 45 + 'deg)'
+                }, 500);
+            });
+        });
+
+    </script>
+
 </head>
 
 <body>
     <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
-        <a class="navbar-brand font-bold" href="#" style="color: red; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">FLIGHT TICKET PRICE</a>
+        <a class="navbar-brand font-bold" href="#"
+            style="color: #EA2330; margin-left: 40px; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">UDAAN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,7 +54,8 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: grey;"><i class="fa fa-user"></i> Profile </a>
+                        aria-haspopup="true" aria-expanded="false" style="color: grey;"><i class="fa fa-user"></i>
+                        Profile </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                         aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item" href="#">My account</a>
@@ -50,157 +65,341 @@
             </ul>
         </div>
     </nav>
- 
-    
+
+
     <!-- As a heading -->
 
-<div style="width: fit-content;margin-top: 100px;position: relative;margin-left: 40px;">
+    <div style="width:95%;margin-top: 100px;position: relative;margin-left: 40px;">
 
-   
-    <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" ><span class="main-heading" >Book Flights</span>
-        <form action="\predict" method="post">
-             <ul> 
-                 <li class="" style="display: inline;">
-                    <div id="depart_contain">
-                        <ul>
-                       <li><span class="label"> Depart from</span></li>
-                            <li>
-                                    <select class="text_field" type="text" name="Source" id="Source" list="location" placeholder="Enter Here" >
+
+        <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" style="position: fixed;padding: 10px;"><span
+                class="main-heading">Book Flights</span>
+            <form action="\predict" method="post">
+                <ul>
+                    <li>
+                        <div id="reverse" onclick="rotate()" style=" position:absolute ;
+                    border-radius: 50%; 
+                    height: 30px;
+                    width: 30px;
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    margin-right: 100px;
+                    margin-left: 150px;margin-top: 20px;border: 1px solid #EA2330 ;">
+                            <span class="icon" style="align-content: center;
+                    float: left;
+                    position: absolute;
+                    margin-left: auto;
+                    margin-right: auto;">
+                                <i class="material-icons" style="font-size:22px;color:#EA2330;">sync_alt</i>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="" style="display: inline;position: absolute;">
+                        <div id="depart_contain">
+                            <ul>
+                                <li><span class="label"> Depart from</span></li>
+                                <li>
+                                    <input class="text_field" type="text" name="Source" id="Source" required="required"
+                                        list="location" placeholder="Enter Here" />
+                                    <datalist id="location">
                                         {% for i in City%}
                                         <option value="{{i}}">{{i}}</option>
                                         {% endfor %}
-                                        
-
-
-                            </select>
-                            </li>
-                    </ul>
-                    </div>
-                </li>
-                <li><span class="icon">
-                    <i class="material-icons"></i>
-                  </span></li>
-                <li style="display: inline;">
-                    <div id="dest_contain">
-                        <ul>
-                       <li><span class="label">Going to</span></li>
-                            <li>
-                                    <input class="text_field" type="text" style="text-align: end;" list="location" name="Destination" id="Destination"  placeholder="Enter Here" />
-                                      <datalist id="location">
-                                    {% for i in Desti%}
-                                        <option value="{{i}}">{{i}}</option>
-                                        {% endfor %} 
                                     </datalist>
-                            </li>
-                    </ul>
-                    </div>
-                </li>
-           </ul>
-           <ul> 
-            <li class="" style="display: inline;">
-               <div id="depart_contain">
-                   <ul>
-                  <li><span class="label">Departure Date</span></li>
-                       <li>
-                               <input class="text_field" type="date" name="Dep_Time" id="Dep_Time" placeholder="Enter Here" />
-                               
-                       </li>
-               </ul>
-               </div>
-           </li>
-           <li style="display: inline;">
-               <div id="dest_contain">
-                   <ul>
-                  <li><span class="label">Return</span></li>
-                       <li>
-                               <input class="text_field" type="date" name="Arrival_Time" id="Arrival_Time"  placeholder="Enter Here" />
-                               
-                       </li>
-               </ul>
-               </div>
-           </li>
-      </ul>
-      
-         </ul>
- 
-           <div id="traveller" style="position: relative;margin-left: -30px;">
-               <ul>
-              <li><span class="label">1 Traveller(s), Class</span></li>
-                   <li>
-                    <div  class="parentDiv">
-                        <div style="color:black">
-                <span class="text" >1 Travelller, Economy</span>
-                <span class="icon">
-                  <i class="material-icons">expand_more</i>
-                </span>
-            </div>
-                    </div>
-                                    
-           </div>
-         
-        <div style="margin-left: 15px;">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Non Stop Flight</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input"style="background-color: red;" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Student Fare</label>
-          </div>
-          <br>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-            <label class="form-check-label" for="inlineCheckbox3">Armed Forces</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
-            <label class="form-check-label" for="inlineCheckbox4">Senior Citizen</label>
-          </div>
-        </div>
-  <input type="submit" value="Submit" class="btn btn-secondary">
-            </form>
-    </div>
-  
 
-<div id="slide" >
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li style="display: inline;">
+                        <div id="dest_contain">
+                            <ul>
+                                <li><span class="label">Going to</span></li>
+                                <li>
+                                    <input class="text_field" type="text" style="text-align: end;" required="required"
+                                        list="destlocation" name="Destination" id="Destination"
+                                        placeholder="Enter Here" />
+                                    <datalist id="destlocation">
+                                        {% for i in Desti%}
+                                        <option value="{{i}}">{{i}}</option>
+                                        {% endfor %}
+                                    </datalist>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="" style="display: inline;">
+                        <div id="depart_contain">
+                            <ul>
+                                <li><span class="label">Departure Date</span></li>
+                                <li>
+                                    <input class="text_field" style="font-size: 20px;" type="date" required="required"
+                                        name="Dep_Time" id="Dep_Time" placeholder="Enter Here" />
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li style="display: inline;">
+                        <div id="dest_contain">
+                            <ul>
+                                <li><span class="label">Return</span></li>
+                                <li>
+                                    <input class="text_field" style="font-size: 20px;" type="text" onclick="returndat()" name="Arrival_Time"
+                                         id="Arrival_Time" placeholder="Enter Here" />
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                </ul>
+
+                <div id="traveller" style="position: relative;margin-left: -30px;">
+                    <ul>
+                        <li><span class="label">1 Traveller(s), Class</span></li>
+                        <li>
+                            <div class="parentDiv">
+                                <div style="color:black">
+                                    <span class="text">1 Travelller, Economy</span>
+                                    <span class="icon">
+                                        <i class="material-icons">expand_more</i>
+                                    </span>
+                                </div>
+                            </div>
+
+                </div>
+
+                <div style="margin-left: 15px;">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Non Stop Flight</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" style="background-color: red;" type="checkbox"
+                            id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Student Fare</label>
+                    </div>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox3">Armed Forces</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox4">Senior Citizen</label>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </form>
+        </div>
+
+        <div>
+            <div id="slide" style="margin-bottom: 50px;margin-right: 150px;">
+
+                <p
+                    style="text-align:start; font-size: 24px;font-weight: bold; font-family: 'Times New Roman', Times, serif;margin-left: 40px; margin-top: 0px;">
+                    Some of best place to visit !</p>
+
+                <ul class="slideshow">
+                    <li class="slid_img"><span class="img_link">
+                            <p
+                                style="width: 100%;bottom: 0;position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                                TAJMAHAL AGRA</p>
+                        </span></li>
+                    <li class="slid_img"><span>
+                            <p
+                                style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                                THE RED FORT DELHI</p>
+                        </span></li>
+                    <li class="slid_img"><span>
+                            <p
+                                style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                                THE GREAT WAY MUMBAI</p>
+
+                        </span></li>
+                    <li class="slid_img"><span>
+                            <p
+                                style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                                BANGLORE PALACE</p>
+
+                        </span></li>
+
+                </ul>
+
+            </div>
+            <div
+            style="width: 720px; position: relative;float: right;margin-top: 0px;margin-right: 7px;margin-bottom: 0px;">
+            <p type="button" style="float: right;text-decoration: underline;font-weight: bold;" data-toggle="modal" data-target="#myModal">
+               >>See More!
+              </button></div>
+              <div class="modal fade" id="myModal" style="margin-top: 0;">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Popular Places</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="div1"
+                        style="height: 200px;position:relative; overflow: auto;scrollbar-width: none; white-space: nowrap;;">
+                        {% for i in range(3,18)%}
+                        <div class="shadow p-2 mb-6 bg-white rounded"
+                            style=" display: inline-block; width: 300px;margin-right: 30px;height: 200px;
+                            background-color: #F34F4F;
+                            background-image: url({{links[i]}});
+                            background-size:cover;
+                            ">
     
-        <p style="text-align: center; font-size: 24px;font-weight: bold; font-family: 'Times New Roman', Times, serif;margin-left: 0px; margin-top: 0px;">Some of best place to visit !</p>
-    
-            <ul class="slideshow">
-                <li class="slid_img"><span class="img_link" > 
-                      <p style="width: 100%;bottom: 0;position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">TAJMAHAL AGRA</p>
-                </span></li>
-              <li class="slid_img"><span>
-                <p style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE RED FORT DELHI</p>
-            </span ></li>
-                <li class="slid_img"><span>
-                    <p style="width: 100%;bottom: 0; position:absolute ; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">THE GREAT WAY MUMBAI</p>
-            
-                </span></li>
-                <li class="slid_img"><span>
-                    <p style="width: 100%;bottom: 0; position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">AMRITSAR PUNJAB</p>
-            
-                </span></li>
-                <li class="slid_img"><span>
-                    <p style="width: 100%;bottom: 0;position: absolute; text-align: center;padding: 10px; color: #f0e5e5;background-color: black; font-size: 30px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">GOA</p>
-            
-                </span></li>
-            </ul>
-            
-</div>
-   
-    </div>
-   
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+                            <li ><p
+                                style="width: 100%;bottom: 0; text-align: center;padding: 0; color: black;background-color: white; font-size: 20px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                              {{h3_list[i-3]}}  </p></li>
+                           <li>
+                           
+                           </li>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <img style="float: right;margin-top: 0;margin-right: 7px;position: relative;"
+                src="https://www.yatra.com/ythomepagecms/media/imagemanager/2023/Mar/2efb197bbc6832cc67c53b7c1cccbeb5.jpg">
+               
+            <div
+                style="width: 720px; position: relative;float: right;margin-top: 40px;margin-right: 7px;margin-bottom: 0px;">
+                <p style="font-size: 16px;font-weight: 700;">Popular Domestic Flight Routes</p>
+                <div id="div1"
+                    style="height: 180px;position:relative; overflow: auto;scrollbar-width: none; white-space: nowrap;width: 720px;">
+                    {% for i in Desti%}
+                    <div class="shadow p-2 mb-6 bg-white rounded"
+                        style=" display: inline-block; width: 140px;margin-right: 30px;height: 170px;background-color: #F34F4F;">
+
+                        <li >Delhi</li>
+                        <li>
+                            <div style="height: 30px; font-size: 17px;width: 0px; ;border-left: 1px solid #9c9c9cc0;">
+                                </span></div>
+                        </li>
+                        <li >{{i}}</li>
+                        <br>
+                        <li><span class="label" > Starting from</span></li>
+                        <li>
+                            <p
+                                style="font-weight: bold;color: #F35252;font-family: 'Rubik-Medium', 'Times New Roman', Times, serif;">
+                                {{price[1]}}</p>
+                        </li>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="shadow p-2 mb-6 bg-white rounded"
+                style="position: relative;  float: right; margin-bottom: 50px;width: 720px;margin-right: 7px;background-color: #F34F4F;">
+                <div
+                    style="position: relative;padding: 10px; margin-top: 0;margin-right: 7px;font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <h5 class="whyBook_title" style="color: #ea2331;font-weight: bold;">Why book with Our Udaan?</h5>
+                    <p class="reasons" style="font-size: 14px;">7 Brilliant reasons Udaan should be your one-stop-shop!
+                    </p>
+                    <h1 class="paragraphHeading" style="font-size: 16px;font-weight: 700;">Book Flights</h1>
+                    <p class="whyBookContent" style="font-size: 14px;">you can tailor your trip from end-to-end by
+                        scouring suitable flights and making your flight booking before proceeding with your hotel
+                        bookings. </p>
+                    <h5 class="paragraphHeading" style="font-size: 16px;font-weight: 700;">Look for flights and hotels
+                    </h5>
+                    <p class="whyBookContent" style="font-size: 14px;">Search for exclusive deals on flights and hotels.
+                        Find cheap air tickets to any destination you like. Choose from its vast repository of hotels -
+                        from budget, mid-range, five-star to niche boutique properties. Widen your choices with options
+                        like flexi stay, pay directly at hotel, and guaranteed standard amenities. Extremely efficient
+                        and easy.</p>
+                    <h5 class="paragraphHeading" style="font-size: 16px;font-weight: 700;">Get a secure flight booking
+                    </h5>
+                    <p class="whyBookContent" style="font-size: 14px;">
+                        Enjoy cancellation protection on domestic flights. Benefit from fare drop protection, same day
+                        cancellation protection, hold now - pay later, on international flight bookings. Great filters,
+                        fantastic navigation.</p>
+                    <h5 class="paragraphHeading" style="font-size: 16px;font-weight: 700;">A holiday to suit every
+                        pocket
+
+                    </h5>
+                    <p class="whyBookContent" style="font-size: 14px;">Plan a honeymoon, a weekend getaway, or an
+                        adventure activity. Select from an array of domestic and international destinations well-suited
+                        to every spectrum of traveller. Be it flights, hotels, pre-planned itinerary, transport upon
+                        arrival/departure or sightseeing - you are covered. Attractive pricing, well-researched
+                        itineraries.</p>
+                    <h5 class="paragraphHeading" style="font-size: 16px;font-weight: 700;">New deal every season
+
+                    </h5>
+                    <p class="whyBookContent" style="font-size: 14px;"> The onset of the festive season, an upcoming
+                        long weekend or a gazetted holiday, expect an attractive deal on flights, hotels and holidays
+                        coming your way. From cashback offers to promo code discounts, you are in for a hot deal.</p>
+
+                </div>
+
+            </div>
+            <div
+                style="position: relative;padding: 10px; margin-top: 0;margin-right: 7px;font-family: Georgia, 'Times New Roman', Times, serif;">
+                </p>
+            </div>
+        </div>
+        <script>
+        const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+
+
+
+
+            var angle = 0;
+            var sync = document.getElementById('reverse');
+            var origin = document.getElementById('Source');
+            var Destination = document.getElementById('Destination');
+            var temp;
+            function rotate() {
+                if (origin.value != '' && Destination.value != '') {
+                    temp = origin.value;
+                    origin.value = Destination.value;
+                    Destination.value = temp;
+                    angle += 360;
+                    sync.style.transform = "rotate(" + angle + "deg)";
+                }
+               
+            }
+             var returndate=document.getElementById('Arrival_Time');
+               
+                returndate.placeholder="Add return date";
+                
+            function returndat(){
+                returndate.type="date";
+            }
+
+                
+
+        </script>
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
 
 </body>
 
