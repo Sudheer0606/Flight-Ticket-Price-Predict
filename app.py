@@ -3,7 +3,7 @@ from flask_cors import cross_origin
 #import sklearn
 from sklearn import svm
 from sklearn import datasets
-import pickle
+import time
 import pandas as pd
 import numpy as N
 import requests
@@ -59,16 +59,17 @@ params = {
   'country_code':'IN'
   
 }
-method = 'airports'
+method = 'cities'
 api_base = 'http://airlabs.co/api/v9/'
 api_result = requests.get(api_base+method, params)
 api_response = api_result.json()['response']
+
 cityname=[]
 for d in api_response:
     name=d['name']
     cityname.append(name)
 
-print(price[5])
+
 City=['DEL-Delhi',"BOM-Mumbai","MAA-Chennai","CCU-Kolkata","BLR-Banglore"]
 link='https://tickets.paytm.com/flights/flightSearch//BOM-Mumbai/1/0/0/E/2023-04-06'
 @app.route("/")
@@ -108,7 +109,7 @@ def predict():
 
     
         Destination = request.form["Destination"]
-        
+       
         
         del_p={}
         for i in range(0,len(unique_res)):
@@ -121,10 +122,8 @@ def predict():
         new_dict = {k: v for k, v in del_p.items() if v}
         sorted_dict = {k: v for k, v in sorted(new_dict.items(), key=lambda item: item[1])}
 
-    
-
        
-        return render_template('result.html',T_Dep=Dep_Time,T_arr=Arrival_Time,Duration=Duration, City=S_cityname,Desti=dun,sorted_dict=sorted_dict,Source=request.form["Source"],Destination=request.form["Destination"],Date=request.form["Dep_Time"])
+        return render_template('result.html', T_Dep=Dep_Time,T_arr=Arrival_Time,Duration=Duration, City=S_cityname,Desti=dun,sorted_dict=sorted_dict,Source=request.form["Source"],Destination=request.form["Destination"],Date=request.form["Dep_Time"])
     
 
 

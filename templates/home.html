@@ -69,10 +69,10 @@
 
     <!-- As a heading -->
 
-    <div style="width:95%;margin-top: 100px;position: relative;margin-left: 40px;">
+    <div style="width:95%;margin-top: 100px;position: relative;margin-left: 40px;display: flex;">
 
 
-        <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" style="position: fixed;padding: 10px;"><span
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" id="card_body" style="position: fixed;padding: 10px;"><span
                 class="main-heading">Book Flights</span>
             <form action="\predict" method="post">
                 <ul>
@@ -124,7 +124,7 @@
                                         list="destlocation" name="Destination" id="Destination"
                                         placeholder="Enter Here" />
                                     <datalist id="destlocation">
-                                        {% for i in Desti%}
+                                        {% for i in City%}
                                         <option value="{{i}}">{{i}}</option>
                                         {% endfor %}
                                     </datalist>
@@ -151,8 +151,8 @@
                             <ul>
                                 <li><span class="label">Return</span></li>
                                 <li>
-                                    <input class="text_field" style="font-size: 20px;" type="text" onclick="returndat()" name="Arrival_Time"
-                                         id="Arrival_Time" placeholder="Enter Here" />
+                                    <input class="text_field" style="font-size: 20px;" type="text" onclick="returndat()"
+                                        name="Arrival_Time" id="Arrival_Time" placeholder="Enter Here" />
 
                                 </li>
                             </ul>
@@ -164,11 +164,11 @@
 
                 <div id="traveller" style="position: relative;margin-left: -30px;">
                     <ul>
-                        <li><span class="label">1 Traveller(s), Class</span></li>
+                        <li><span class="label">Traveller(s), Class</span></li>
                         <li>
                             <div class="parentDiv">
                                 <div style="color:black">
-                                    <span class="text">1 Travelller, Economy</span>
+                                    <span class="text" id="traveller" name="traveller" >1 Travelller, Economy</span>
                                     <span class="icon">
                                         <i class="material-icons">expand_more</i>
                                     </span>
@@ -176,6 +176,7 @@
                             </div>
 
                 </div>
+                
 
                 <div style="margin-left: 15px;">
                     <div class="form-check form-check-inline">
@@ -197,7 +198,7 @@
                         <label class="form-check-label" for="inlineCheckbox4">Senior Citizen</label>
                     </div>
                 </div>
-                <input type="submit" value="Submit" class="btn btn-secondary">
+                <input type="submit" value="Search Flight" style="left: 130;right: 0;margin-top:20px;" class="btn btn-secondary">
             </form>
         </div>
 
@@ -233,51 +234,54 @@
                         </span></li>
 
                 </ul>
-
+               
             </div>
             <div
-            style="width: 720px; position: relative;float: right;margin-top: 0px;margin-right: 7px;margin-bottom: 0px;">
-            <p type="button" style="float: right;text-decoration: underline;font-weight: bold;" data-toggle="modal" data-target="#myModal">
-               >>See More!
-              </button></div>
-              <div class="modal fade" id="myModal" style="margin-top: 0;">
+                style="width: 720px; position: relative;float: right;margin-top: 0px;margin-right: 7px;margin-bottom: 0px;">
+                <p type="button" style="float: right;text-decoration: underline;font-weight: bold;" data-toggle="modal"
+                    data-target="#myModal">
+                    >>See More!
+                    </button>
+            </div>
+            <div class="modal fade" id="myModal" style="margin-top: 0;">
                 <div class="modal-dialog modal-xl modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Popular Places</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="div1"
-                        style="height: 200px;position:relative; overflow: auto;scrollbar-width: none; white-space: nowrap;;">
-                        {% for i in range(3,18)%}
-                        <div class="shadow p-2 mb-6 bg-white rounded"
-                            style=" display: inline-block; width: 300px;margin-right: 30px;height: 200px;
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Popular Places</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="div1"
+                                style="height: 200px;position:relative; overflow: auto;scrollbar-width: none; white-space: nowrap;;">
+                                {% for i in range(3,18)%}
+                                <div class="shadow p-2 mb-6 bg-white rounded" style=" display: inline-block; width: 300px;margin-right: 30px;height: 200px;
                             background-color: #F34F4F;
                             background-image: url({{links[i]}});
                             background-size:cover;
                             ">
-    
-                            <li ><p
-                                style="width: 100%;bottom: 0; text-align: center;padding: 0; color: black;background-color: white; font-size: 20px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
-                              {{h3_list[i-3]}}  </p></li>
-                           <li>
-                           
-                           </li>
+
+                                    <li>
+                                        <p
+                                            style="width: 100%;bottom: 0; text-align: center;padding: 0; color: black;background-color: white; font-size: 20px;font-weight: bold; font-family: 'Times New Roman', Times, serif; ">
+                                            {{h3_list[i-3]}} </p>
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                </div>
+                                {% endfor %}
+                            </div>
                         </div>
-                        {% endfor %}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        </div>
                     </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      
-                    </div>
-                  </div>
                 </div>
-              </div>
+            </div>
             <img style="float: right;margin-top: 0;margin-right: 7px;position: relative;"
                 src="https://www.yatra.com/ythomepagecms/media/imagemanager/2023/Mar/2efb197bbc6832cc67c53b7c1cccbeb5.jpg">
-               
+
             <div
                 style="width: 720px; position: relative;float: right;margin-top: 40px;margin-right: 7px;margin-bottom: 0px;">
                 <p style="font-size: 16px;font-weight: 700;">Popular Domestic Flight Routes</p>
@@ -287,14 +291,14 @@
                     <div class="shadow p-2 mb-6 bg-white rounded"
                         style=" display: inline-block; width: 140px;margin-right: 30px;height: 170px;background-color: #F34F4F;">
 
-                        <li >Delhi</li>
+                        <li>Delhi</li>
                         <li>
                             <div style="height: 30px; font-size: 17px;width: 0px; ;border-left: 1px solid #9c9c9cc0;">
                                 </span></div>
                         </li>
-                        <li >{{i}}</li>
+                        <li>{{i}}</li>
                         <br>
-                        <li><span class="label" > Starting from</span></li>
+                        <li><span class="label"> Starting from</span></li>
                         <li>
                             <p
                                 style="font-weight: bold;color: #F35252;font-family: 'Rubik-Medium', 'Times New Roman', Times, serif;">
@@ -354,12 +358,12 @@
             </div>
         </div>
         <script>
-        const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
+            const myModal = document.getElementById('myModal')
+            const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+            myModal.addEventListener('shown.bs.modal', () => {
+                myInput.focus()
+            })
 
 
 
@@ -377,17 +381,17 @@ myModal.addEventListener('shown.bs.modal', () => {
                     angle += 360;
                     sync.style.transform = "rotate(" + angle + "deg)";
                 }
-               
+
             }
-             var returndate=document.getElementById('Arrival_Time');
-               
-                returndate.placeholder="Add return date";
-                
-            function returndat(){
-                returndate.type="date";
+            var returndate = document.getElementById('Arrival_Time');
+
+            returndate.placeholder = "Add return date";
+
+            function returndat() {
+                returndate.type = "date";
             }
 
-                
+
 
         </script>
         <!-- JavaScript -->

@@ -4,129 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UDAAN</title>
-    <link rel="icon" href="https://www.citypng.com/public/uploads/preview/red-ticket-vector-flat-logo-icon-png-11663776261emdoawyxzn.png" type="image/x-icon">
+    <link rel="icon"
+        href="https://www.citypng.com/public/uploads/preview/red-ticket-vector-flat-logo-icon-png-11663776261emdoawyxzn.png"
+        type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            $('#flip').click(function(){
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#flip').click(function () {
                 $('#panel').slideToggle(1000);
             });
         });
-        </script> 
+    </script>
 
 </head>
 <style>
     body {
-    background-color: #FDFBFB;
-    font-family: "Rubik-Medium", 'Times New Roman', Times, serif;
-    font-size: 1.07143rem;
-}
-.flight_label{
-    font-size: .71429rem;
-      color: #7a7979da;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
-}
+        background-color: #f3ebeb;
+        font-family: "Rubik-Medium", 'Times New Roman', Times, serif;
+        font-size: 1.07143rem;
+    }
 
-#flight_name{
-    font-size: 13px;
-      color: black;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
-}
-    .flight_detail{
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flight_label {
+        font-size: .71429rem;
+        color: #7a7979da;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #flight_name {
+        font-size: 13px;
+        color: black;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flight_detail {
         float: left;
-       font-weight: bold;
+        font-weight: bold;
         align-content: center;
         text-align: center;
-        margin-top: 25px;
-
+        margin-top: 20px;
+        font-size: 14px;
 
     }
-    .cont_det{
-     
-        
-    }
-    #flight_con{
-        margin-left: 50px;
+
+    #flight_con {
+        margin-left: 120px;
         position: relative;
         height: fit-content;
-        margin-right:350px;
-        margin-bottom: 100px;
-    
+        margin-bottom: 60px;
+
     }
-    
-    #book{
+
+    #book {
         align-content: center;
-   color: #F34F4F;
- border: 2px solid #F34F4F;
- 
- background-color:transparent ;
+        color: #F34F4F;
+        border: 2px solid #F34F4F;
 
- 
+        background-color: transparent;
+
+
     }
-#inputs{
-    position: relative;
-    justify-content: center;
-    margin-top: 60px;
-    height: 100px;
-    
-    background-image:linear-gradient(to right, #b7243a,#43264e);
-}
 
-#source_input,#source_out,#source_date{
-    color: white;
-    font-weight: bold;
-    width: 100%;
-    font-size: 17px;
+    #inputs {
+        position: relative;
+        justify-content: center;
+        margin-top: 60px;
+        height: 80px;
+
+        background-image: linear-gradient(to right, #b7243a, #43264e);
     }
-   #index{
-    height: 5%;
-    width: fit-content;
-    
-    position: relative;
-    margin-left: 60px;
-    padding-right: 120px;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #E5E7EB;
-    margin-bottom: 50px;
-   }
-   .index_label{
-    position: relative;
-    float: left;
-   
-   
-    font-size: 14px;
-  color: black;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
-}
-    
-#search_again{
-    align-content: center;
- background-color: #EA2330;
- border: none;
- margin-top: auto;
- margin-bottom: auto;
- position: relative;
- width: fit-content;
 
-}
+    #input_content {
+        margin-top: 10px;
+        right: 0;
+        margin-left: 20px;
+        text-align: center;
+       
+        font-size: 14px;
+       
+    }
+
+    #source_input,
+    #source_out,
+    #source_date {
+        color: white;
+        font-weight: bold;
+        width: 85%;
+        font-size: 14px;
+    }
+
+    #index {
+
+        width: fit-content;
+        position: relative;
+        margin-left: 120px;
+        padding-right: 130px;
+        margin-top: 20px;
+        border-radius: 3px;
+        padding: 7px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgba(128, 128, 128, 0.685);
+        margin-bottom: 0px;
+    }
+
+    .index_label {
+        position: relative;
+        float: left;
+
+        font-size: .85714rem;
+        color: black;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #search_again {
+        align-content: center;
+        background-color: #EA2330;
+        border: none;
+        margin-top: 5px;
+        position: relative;
+        width: fit-content;
+        margin-left: 30;
+
+    }
 </style>
+
 <body>
     <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan" style="box-shadow: none;">
-        <a class="navbar-brand font-bold" href="#" style="color: #EA2330; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">UDAAN</a>
+        <a class="navbar-brand font-bold" href="#"
+            style="margin-left: 40px; color: #EA2330; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;">UDAAN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -142,7 +163,8 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: grey;"><i class="fa fa-user"></i> Profile </a>
+                        aria-haspopup="true" aria-expanded="false" style="color: grey;"><i class="fa fa-user"></i>
+                        Profile </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                         aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item" href="#">My account</a>
@@ -152,26 +174,28 @@
             </ul>
         </div>
     </nav>
-<div id="inputs">
-    <div id="input_content">
-    <form action="\search" method="post">
-    <ul style="margin-top: 20px;">
-        <li class="flight_detail" >
-            <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;">  <i class="fa fa-plane" style="font-size:48px;color:white"></i></div>  
-             </li>
-        
-        <li class="flight_detail" >
-           <div class="cont_det"  style="margin-left: 100px; position: relative;">
-            <input name="source_input" id="source_input" value="{{Source}}" class="text_field" type="text"  list="stopage" placeholder="Enter Here" /> 
-                <datalist id="stopage">
-                    {% for i in City%}
-                        <option value="{{i}}">{{i}}</option>
-                        {% endfor %} 
-                    </datalist>
-              
-            </li>
-            <li>
-                <div id="reverse" onclick="rotate()" style=" position:absolute ;
+    <div id="inputs">
+        <div id="input_content" style="top:10;bottom: 0;margin: auto;">
+            <form action="\search" method="post">
+                <ul style="margin-top: 30px;">
+                    <li class="flight_detail">
+                        <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;"> <i
+                                class="fa fa-plane" style="font-size:48px;color:white"></i></div>
+                    </li>
+
+                    <li class="flight_detail">
+                        <div class="cont_det" style="margin-left: 90px; position: relative;">
+                            <input name="source_input" id="source_input" value="{{Source}}" class="text_field"
+                                type="text" list="stopage" placeholder="Enter Here" />
+                            <datalist id="stopage">
+                                {% for i in City%}
+                                <option value="{{i}}">{{i}}</option>
+                                {% endfor %}
+                            </datalist>
+
+                    </li>
+                    <li>
+                        <div id="reverse" onclick="rotate()" style=" position:absolute ;
             border-radius: 50%; 
             height: 30px;
             width: 30px;
@@ -181,125 +205,171 @@
             align-items: center;
             top: 40%;
             bottom: 50%;
-            left: 32%;
+            left: 25%;
             border: 1px solid #fff ;">
-                    <span class="icon" style="align-content: center;
+                            <span class="icon" onclick="rotate()"  style="align-content: center;
             float: left;
             margin-left: auto;
             margin-right: auto;">
-                        <i class="material-icons" style="font-size:22px;color:#fff;">sync_alt</i>
-                    </span>
-                </div>
-            </li>
-            <li class="flight_detail" >
-      <div class="cont_det" id="time" style="margin-left: 180px;;position: relative;"> 
-        <input name="source_out" id="source_out" class="text_field" type="text" value="{{Destination}}" list="stopage" placeholder="Enter Here" >
-            <datalist id="stopage">
-                {% for i in Desti%}
-                    <option value="{{i}}">{{i}}</option>
-                    {% endfor %} 
-                </datalist>
-          
-    </div> 
-        </li>
-        <li class="flight_detail" >
-            <div class="cont_det" id="time" style="margin-left: 80px;;position: relative;"> <input name="source_date" id="source_date" class="text_field" type="date" value="{{Date}}" /></span> </div> 
-              </li>
-              <li class="flight_detail" >
-                <div class="cont_det" id="time" style="position: absolute;"> <input type="submit" id="search_again"value="Search Again" class="btn btn-secondary"></div> 
-                  </li>
-              
-    </ul>
-    </form></div>
-</div>
-     
-        <div id="index">
-            <ul>
-                <li class="index_label" >
-                    <span class="" >Airline</span> 
-                      </li>
-                      <li class="index_label" style=" margin-left: 200px;">
-                        <span class="">Source</span> 
-                          </li>
-                          <li class="index_label" style=" margin-left: 60px;">
-                           <span class="">Destination</span>
-                              </li>
-                              <li class="index_label" style=" margin-left: 80px;">
-                               <span class="">Duration</span>
-                                  </li>
-                                  <li class="index_label" style=" margin-left: 160px;margin-right: 40px;">
-                                    <span class="">Price</span> 
-                                      </li>
-            </ul>
-       </div>
-        <div id="flight_con">
-            
-            {% for key in sorted_dict.keys()%}
-            <div class="shadow p-2 mb-6 bg-white rounded" id="card_body" style="width: 100%; height: 100px;position: relative; left: 0;right: 0;margin-top: 40px; text-align: center; " >
+                                <i class="material-icons" style="font-size:22px;color:#fff;">sync_alt</i>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="flight_detail">
+                        <div class="cont_det" id="time" style="margin-left: 100px;;position: relative;">
+                            <input name="source_out" id="source_out" class="text_field" type="text"
+                                value="{{Destination}}" list="stopage" placeholder="Enter Here">
+                            <datalist id="stopage">
+                                {% for i in City%}
+                                <option value="{{i}}">{{i}}</option>
+                                {% endfor %}
+                            </datalist>
 
-            <li class="flight_detail" >
-               <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;"> {{key}} </div>  
-                </li>
-                <li class="flight_detail" >
-          <div class="cont_det" id="time" style="margin-left: 280px;;position: relative;"> {{T_Dep[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">{{Source}}</span> </div> 
+                        </div>
+                    </li>
+                    <li class="flight_detail">
+                        <div class="cont_det" id="time" style="margin-left: 80px;;position: relative;"> <input
+                                name="source_date" id="source_date" class="text_field" type="date"
+                                value="{{Date}}" /></span> </div>
+                    </li>
+                    <li class="flight_detail">
+                        <div class="cont_det" id="time" style="margin-left: 80px;;position: relative;"> <input
+                                name="traveller" id="source_date" class="text_field" type="text"
+                                value="1 Travelller, Economy"/></div>
+                    </li>
+                    
+                    <li class="flight_detail">
+                        <div class="cont_det" id="time" style="position: relative;"> <input type="submit"
+                                id="search_again" value="Search Again" class="btn btn-danger btn-sm"></div>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <div id="index">
+        <ul>
+            <li class="index_label">
+                <span class="">Airline</span>
             </li>
-            <li class="flight_detail" >
-                <div class="cont_det" style="margin-left: 10px;position: relative;"><span class="flight_label"><hr style="height: 0px; font-size: 17px;width: 50px; ;border-top: 2px solid #9c9c9c;"></span></div>
-                 </li>
-            <li class="flight_detail" >
-               <div class="cont_det" style="margin-left: 10px;position: relative;"> {{T_arr[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">{{Destination}}</span></div>
-                </li>
-                <li class="flight_detail" >
-                    <div class="cont_det" style="margin-left: 80px;position: relative;"><span class="flight_label"><div style="height: 40px; font-size: 17px;width: 0px; ;border-left: 1px solid #9c9c9cc0;"></span></div>
-                     </li>
-                <li class="flight_detail" >
-                    <div class="cont_det" style="margin-left: 10px;position: relative;"> {{Duration[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">Nonstop</span></div>
-                     </li>
-            
-                <li class="flight_detail" >
-            <div class="cont_det" style="margin-left: 50px; position: absolute;">Rs. {{sorted_dict[key][0]}}</div>
+            <li class="index_label" style=" margin-left: 180px;">
+                <span class="">Source</span>
+            </li>
+            <li class="index_label" style=" margin-left: 60px;">
+                <span class="">Destination</span>
+            </li>
+            <li class="index_label" style=" margin-left: 80px;">
+                <span class="">Duration</span>
+            </li>
+            <li class="index_label" style=" margin-left: 60px;margin-right: 180px;">
+                <span class="">Price</span>
+            </li>
+        </ul>
+    </div>
+    <div style="width:100%;margin-top: px;position: relative;margin-left: 0px;  display: flex;">
+        <div id="flight_con" style="">
+
+            {% for key in sorted_dict.keys()%}
+            <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" id="card_body"
+                style="width: 100%; height: 120px;position: relative; left: 0;right: 0;margin-top: 30px; text-align: center; ">
+
+                <li class="flight_detail">
+                    <div class="cont_det" id="flight_name" style="margin-left: 20px; position: absolute;"> {{key}}
+                    </div>
                 </li>
                 <li class="flight_detail">
-                    <div class="cont_det">   <button type="" onclick="book()" id="book" style="margin-left: 220px;position: absolute;" value="Book Ticket"  class="btn btn-primary">Book</button></div>
+                    <div class="cont_det" id="time" style="margin-left: 250px;;position: relative;">
+                        {{T_Dep[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">{{Source}}</span> </div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det" style="margin-left: 10px;position: relative;"><span class="flight_label">
+                            <hr style="height: 0px; font-size: 17px;width: 50px; ;border-top: 2px solid #9c9c9c;">
+                        </span></div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det" style="margin-left: 10px;position: relative;">
+                        {{T_arr[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">{{Destination}}</span></div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det" style="margin-left: 80px;position: relative;"><span class="flight_label">
+                            <div style="height: 40px; font-size: 17px;width: 0px; ;border-left: 1px solid #9c9c9cc0;">
+                        </span></div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det" style="margin-left: 10px;position: relative;">
+                        {{Duration[sorted_dict[key][0]-1000]}} <br> <span class="flight_label">Nonstop</span></div>
+                </li>
+
+                <li class="flight_detail">
+                    <div class="cont_det" style="margin-left: 80px; position: relative;">Rs. {{sorted_dict[key][0]}}
+                    </div>
+                </li>
+                <li class="flight_detail">
+                    <div class="cont_det"> <button type="" onclick="book()" id="book"
+                            style="margin-left: 70px;position: relative;" value="Book Ticket"
+                            class="btn btn-primary">Book</button></div>
                 </li>
                 <br>
-                </div>
-                
-                {% endfor %}
-               </div> 
-        
-        
-   </div>
-   <script>
-    var City=['DEL-Delhi',"BOM-Mumbai","MAA-Chennai","CCU-Kolkata","BLR-Banglore"];
-    var orign=document.getElementsByName('source_input');
-    var destin=document.getElementById('source_out');
-    
-    function book(){
-         newlink='https://tickets.paytm.com/flights/flightSearch/'+City[1]+'/'+City[0]+'/1/0/0/E/2023-04-06';
-             link='https://tickets.paytm.com/flights/';
-            window.open(newlink,'_blank');
-         
-        
-    }
-    
-            var angle = 0;
-            var sync = document.getElementById('reverse');
-            var origin = document.getElementById('source_input');
-            var Destination = document.getElementById('source_out');
-            var temp;
-            function rotate() {
-                if (origin.value != '' && Destination.value != '') {
-                    temp = origin.value;
-                    origin.value = Destination.value;
-                    Destination.value = temp;
-                    angle += 360;
-                    sync.style.transform = "rotate(" + angle + "deg)";
-                }
-            }
+            </div>
 
-        
-   </script>
+            {% endfor %}
+        </div>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="
+               background-color: #fff;
+               margin-left: 40;
+               width: fit-content;
+               justify-content: center;
+               padding: 0;
+               height: fit-content;
+               position: relative;
+               text-align: center;
+
+               ">
+            <strong style="font-size: 14px;">TODAY'S OFFER</strong>
+            {% for i in range(0,4)%}
+            <div
+                style="left: 0;right: 0;margin: auto;margin-bottom: 20; margin-top: 20px; width: fit-content; background-color: #E5E7EB;text-align: center;border: 2px solid red; border-style:dashed;font-size: 14px;padding: 6px;">
+                <span><b>YRCITIEMI</b></span></div>
+            <p style="width:200px; font-size: 12px;text-align: center;margin: 0;padding: 0px;">Flat 12% OFF (upto
+                Rs.1,800) + No Cost EMI on 3 or 6 months</p>
+            <strong style="font-size: 14px;color:#3691ca;font-family: 'Rubik-Regular';">COPY CODE</strong>
+                <hr style="left: 0;right: 0;margin: auto;height: 0px; width: 100%; ;border-top: 1px solid #9c9c9c;">
+                {%endfor%}
+        </div>
+    </div>
+
+
+    <script>
+        var City = ['DEL-Delhi', "BOM-Mumbai", "MAA-Chennai", "CCU-Kolkata", "BLR-Banglore"];
+        var orign = document.getElementsByName('source_input');
+        var destin = document.getElementById('source_out');
+
+        function book() {
+            newlink = 'https://tickets.paytm.com/flights/flightSearch/' + City[1] + '/' + City[0] + '/1/0/0/E/2023-04-06';
+            link = 'https://tickets.paytm.com/flights/';
+            window.open(newlink, '_blank');
+
+
+        }
+
+        var angle = 0;
+        var sync = document.getElementById('reverse');
+        var origin = document.getElementById('source_input');
+        var Destination = document.getElementById('source_out');
+        var temp;
+        function rotate() {
+            if (origin.value != '' && Destination.value != '') {
+                temp = origin.value;
+                origin.value = Destination.value;
+                Destination.value = temp;
+                angle += 360;
+                sync.style.transform = "rotate(" + angle + "deg)";
+            }
+        }
+
+
+    </script>
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
